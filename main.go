@@ -2,6 +2,7 @@ package main
 
 import (
   "embed"
+  "fmt"
 
   "ats3/internal/config"
   _ "ats3/internal/config"
@@ -27,13 +28,17 @@ func main() {
     ShowLine:      true,
     LogInConsole:  true,
   })
+  mergo.Merge(&g.CONFIG.System, &config.System{
+    AppName: "Edx",
+    Port:    "9888",
+  })
   _, log := core.Init()
   g.Log = log
   zap.ReplaceGlobals(g.Log)
   g.APP = core.InitApp()
   middleware.InitMiddleware(g.APP)
   router.InitRoutes(g.APP)
-  err := g.APP.Listen(":9888")
+  err := g.APP.Listen(fmt.Sprintf(":%v", g.CONFIG.System.Port))
   if err != nil {
     panic(err)
   }

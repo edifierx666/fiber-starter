@@ -1,9 +1,9 @@
 package config
 
 type Server struct {
-  AppName string `mapstructure:"name" json:"name" yaml:"name"`
-  Zap     Zap    `mapstructure:"zap" json:"zap" yaml:"zap"`
-  Redis   Redis  `mapstructure:"redis" json:"redis" yaml:"redis"`
+  System System `mapstructure:"system" json:"system" yaml:"system"`
+  Zap    Zap    `mapstructure:"zap" json:"zap" yaml:"zap"`
+  Redis  Redis  `mapstructure:"redis" json:"redis" yaml:"redis"`
 
   // gorm
   Mysql Mysql `mapstructure:"mysql" json:"mysql" yaml:"mysql"`

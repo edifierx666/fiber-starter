@@ -5,6 +5,7 @@ import (
   "fmt"
   "time"
 
+  "ats3/internal/g"
   "github.com/gofiber/fiber/v2"
 )
 
@@ -84,6 +85,6 @@ func DefaultLogger() fiber.Handler {
       v, _ := json.Marshal(layout)
       fmt.Println(string(v))
     },
-    Source: "EDX",
+    Source: g.CONFIG.System.AppName,
   }.SetLoggerMiddleware()
 }
