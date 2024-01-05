@@ -14,5 +14,4 @@ func InitMiddleware(a *fiber.App) {
     // Add simple logger.
     DefaultLogger(),
   )
-  NotFoundRoute(a)
 }
