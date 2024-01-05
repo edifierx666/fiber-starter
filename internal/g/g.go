@@ -1,7 +1,13 @@
 package g
 
-import "ats3/internal/config"
+import (
+  "ats3/internal/config"
+  "github.com/gofiber/fiber/v2"
+  "go.uber.org/zap"
+)
 
 var (
-  EDX_CONFIG config.AppCfg
+  CONFIG config.Server
+  Log    *zap.Logger
+  APP    *fiber.App
 )
