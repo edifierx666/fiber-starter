@@ -19,7 +19,6 @@ func Viper(path ...string) *viper.Viper {
     flag.Parse()
     if config == "" { // 判断命令行参数是否为空
       if configEnv := os.Getenv(internal.ConfigEnv); configEnv == "" { // 判断 internal.ConfigEnv 常量存储的环境变量是否为空
-        fmt.Printf("您正在使用gin模式的%s环境名称,config的路径为%s\n", internal.ConfigDefaultFile)
       } else { // internal.ConfigEnv 常量存储的环境变量不为空 将值赋值于config
         config = configEnv
         fmt.Printf("您正在使用%s环境变量,config的路径为%s\n", internal.ConfigEnv, config)
