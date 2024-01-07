@@ -7,11 +7,19 @@ import (
 )
 
 func InitMiddleware(a *fiber.App) {
+  // cfg := swagger.Config{
+  //   BasePath: "/",
+  //   FilePath: "./docs/swagger.json",
+  //   Path:     "swagger",
+  //   Title:    a.Config().AppName,
+  // }
+
   a.Use(
     recover.New(),
     // Add CORS to each route.
     cors.New(),
     // Add simple logger.
+    // swagger.New(cfg),
     DefaultLogger(),
   )
 }

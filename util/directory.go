@@ -8,11 +8,11 @@ import (
   "strings"
 )
 
-// @author: [piexlmax](https://github.com/piexlmax)
-// @function: PathExists
-// @description: 文件目录是否存在
-// @param: path string
-// @return: bool, error
+//	@author:		[piexlmax](https://github.com/piexlmax)
+//	@function:		PathExists
+//	@description:	文件目录是否存在
+//	@param:			path string
+//	@return:		bool, error
 
 func PathExists(path string) (bool, error) {
   fi, err := os.Stat(path)
@@ -28,11 +28,11 @@ func PathExists(path string) (bool, error) {
   return false, err
 }
 
-// @author: [songzhibin97](https://github.com/songzhibin97)
-// @function: FileMove
-// @description: 文件移动供外部调用
-// @param: src string, dst string(src: 源位置,绝对路径or相对路径, dst: 目标位置,绝对路径or相对路径,必须为文件夹)
-// @return: err error
+//	@author:		[songzhibin97](https://github.com/songzhibin97)
+//	@function:		FileMove
+//	@description:	文件移动供外部调用
+//	@param:			src string, dst string(src: 源位置,绝对路径or相对路径, dst: 目标位置,绝对路径or相对路径,必须为文件夹)
+//	@return:		err error
 
 func FileMove(src string, dst string) (err error) {
   if dst == "" {
@@ -67,11 +67,11 @@ func DeLFile(filePath string) error {
   return os.RemoveAll(filePath)
 }
 
-// @author: [songzhibin97](https://github.com/songzhibin97)
-// @function: TrimSpace
-// @description: 去除结构体空格
-// @param: target interface (target: 目标结构体,传入必须是指针类型)
-// @return: null
+//	@author:		[songzhibin97](https://github.com/songzhibin97)
+//	@function:		TrimSpace
+//	@description:	去除结构体空格
+//	@param:			target interface (target: 目标结构体,传入必须是指针类型)
+//	@return:		null
 
 func TrimSpace(target interface{}) {
   t := reflect.TypeOf(target)

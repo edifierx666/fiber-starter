@@ -1,0 +1,16 @@
+info:
+  contact: {}
+paths:
+  /authorityBtn/getAuthorityBtn:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses: {}
+      security:
+      - ApiKeyAuth: []
+      summary: 获取权限按钮
+      tags:
+      - AuthorityBtn
+swagger: "2.0"

@@ -8,21 +8,13 @@ import (
   "ats3fx/internal/core/middleware"
   "ats3fx/internal/g"
   "github.com/gofiber/fiber/v2"
-  "github.com/gofiber/fiber/v2/middleware/cors"
-  recover2 "github.com/gofiber/fiber/v2/middleware/recover"
   "go.uber.org/fx"
 )
 
 func NewFiberApp(lf fx.Lifecycle, cfg fiber.Config, c *config.Server) *fiber.App {
   app := fiber.New(cfg)
 
-  app.Use(
-    recover2.New(),
-    // Add CORS to each route.
-    cors.New(),
-    // Add simple logger.
-    middleware.DefaultLogger(),
-  )
+  middleware.InitMiddleware(app)
 
   lf.Append(
     fx.Hook{
@@ -30,7 +22,7 @@ func NewFiberApp(lf fx.Lifecycle, cfg fiber.Config, c *config.Server) *fiber.App
         go func() {
           err := app.Listen(fmt.Sprintf(":%v", g.CONFIG.System.Port))
           if err != nil {
-
+            panic(err)
           }
         }()
         return nil

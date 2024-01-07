@@ -1,6 +1,7 @@
 package main
 
 import (
+  "ats3fx/api"
   "ats3fx/internal/core"
   "ats3fx/internal/g"
   "ats3fx/util"
@@ -12,8 +13,9 @@ func main() {
   fx.New(
     fx.Supply(
       fiber.Config{
-        AppName:   "edx",
-        Immutable: true,
+        AppName:           "edx",
+        Immutable:         true,
+        EnablePrintRoutes: true,
       },
     ),
     fx.Provide(
@@ -23,5 +25,6 @@ func main() {
     ),
     fx.Populate(&g.MemStorage),
     core.NewCoreModule(),
+    api.NewRouterModule(),
   ).Run()
 }
