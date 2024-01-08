@@ -13,6 +13,6 @@ func main() {
 		internal.Wrapper.Before(),
 		core.NewCoreModule(),
 		web.NewWebModule(),
-		internal.Wrapper.Before(),
+		internal.Wrapper.After(),
 	).Run()
 }

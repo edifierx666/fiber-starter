@@ -14,7 +14,6 @@ func (w WrapLife) Before() fx.Option {
 	return fx.Module(
 		"before-module",
 		fx.Supply(
-			Wrapper,
 			fiber.Config{
 				AppName:           "edx",
 				Immutable:         true,
@@ -50,7 +49,6 @@ func (w WrapLife) Before() fx.Option {
 func (w WrapLife) After() fx.Option {
 	return fx.Module(
 		"after-module",
-		fx.Supply(Wrapper),
 	)
 }
 
